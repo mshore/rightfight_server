@@ -1,0 +1,1 @@
+FLASK_APP=rightfight_server.py
