@@ -8,3 +8,10 @@ class LBoardRecord(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.name)
+
+    def tojson(self):
+        res = dict()
+        res["name"] = self.name
+        res["score"] = self.score
+        return res
+
