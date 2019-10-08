@@ -2,7 +2,6 @@ from flask import request
 from app.models import LBoardRecord
 from app import app
 from app import db
-import sqlite3
 import json
 
 
@@ -25,4 +24,8 @@ def addtoleaderboard():
     return "no one cares"
 
 
-
+@app.route('/firedance')
+def getleaderboard():
+    leaderboard = LBoardRecord.query.all()
+    leaderboard_json = json.dumps([obj.__dict__ for obj in leaderboard])
+    return leaderboard_json
