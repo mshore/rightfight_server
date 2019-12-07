@@ -27,5 +27,6 @@ def addtoleaderboard():
 @app.route('/firedance')
 def getleaderboard():
     leaderboard = LBoardRecord.query.all()
+    print(len(leaderboard))
     leaderboard_json = json.dumps([obj.tojson() for obj in leaderboard])
     return leaderboard_json
